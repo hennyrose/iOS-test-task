@@ -102,19 +102,7 @@ final class BalanceViewModel {
     }
     
     private func formatDateForSection(_ date: Date) -> String {
-        let calendar = Calendar.current
-        let now = Date()
-        
-        if calendar.isDateInToday(date) {
-            return "Today"
-        } else if calendar.isDateInYesterday(date) {
-            return "Yesterday"
-        } else {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            return formatter.string(from: date)
-        }
+        return date.sectionHeaderFormatted
     }
     
     deinit {

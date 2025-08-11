@@ -67,7 +67,7 @@ final class BalanceHeaderView: UIView {
     }
     
     func updateBalance(_ balance: Decimal) {
-        balanceLabel.text = String(format: "%.4f BTC", NSDecimalNumber(decimal: balance).doubleValue)
+        balanceLabel.text = "\(balance.bitcoinFormatted) BTC"
     }
     
     func updateRate(_ rate: Double?) {

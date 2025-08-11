@@ -25,7 +25,7 @@ final class AppCoordinator {
     private func showBalanceScreen() {
         let viewModel = BalanceViewModel(
             bitcoinService: ServicesAssembler.bitcoinRateService(),
-            transactionService: TransactionService()
+            transactionService: TransactionService.shared
         )
         
         let viewController = BalanceViewController(viewModel: viewModel)
@@ -34,6 +34,14 @@ final class AppCoordinator {
     }
     
     func showAddTransaction() {
+        let viewModel = AddTransactionViewModel(
+            transactionService: TransactionService.shared
+        )
+        let viewController = AddTransactionViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        
+        let navController = UINavigationController(rootViewController: viewController)
+        navigationController.present(navController, animated: true)
     }
     
     private func setupAppearance() {

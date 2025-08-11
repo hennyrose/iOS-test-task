@@ -23,7 +23,6 @@
 		8686097D2E4915970099AA49 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686097C2E4915900099AA49 /* TransactionService.swift */; };
 		8686097F2E4915B20099AA49 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686097E2E4915AC0099AA49 /* CoreDataService.swift */; };
 		868609822E4916030099AA49 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609812E4916020099AA49 /* Transaction.swift */; };
-		868609842E4916120099AA49 /* BitcoinRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609832E49160E0099AA49 /* BitcoinRate.swift */; };
 		868609862E49161E0099AA49 /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609852E49161D0099AA49 /* TransactionCategory.swift */; };
 		8686098B2E4916600099AA49 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686098A2E49165F0099AA49 /* CoreDataStack.swift */; };
 		8686098F2E4916A90099AA49 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686098E2E4916A80099AA49 /* UIView+Extensions.swift */; };
@@ -31,14 +30,10 @@
 		868609932E4916C10099AA49 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609922E4916C00099AA49 /* Date+Extensions.swift */; };
 		868609962E4917450099AA49 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609952E4917430099AA49 /* BalanceViewController.swift */; };
 		868609982E4917520099AA49 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609972E4917510099AA49 /* BalanceViewModel.swift */; };
-		8686099A2E49175B0099AA49 /* BalanceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609992E49175A0099AA49 /* BalanceCoordinator.swift */; };
 		8686099D2E4917730099AA49 /* BalanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686099C2E4917710099AA49 /* BalanceHeaderView.swift */; };
 		8686099F2E49177D0099AA49 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686099E2E49177D0099AA49 /* TransactionCell.swift */; };
-		868609A12E4917870099AA49 /* TransactionSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A02E4917860099AA49 /* TransactionSectionHeader.swift */; };
 		868609A42E4917A40099AA49 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A32E4917A40099AA49 /* AddTransactionViewController.swift */; };
 		868609A62E4917AD0099AA49 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A52E4917AD0099AA49 /* AddTransactionViewModel.swift */; };
-		868609A92E4917C10099AA49 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A82E4917C10099AA49 /* CategoryPickerView.swift */; };
-		868609AB2E4917CB0099AA49 /* AmountInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609AA2E4917CB0099AA49 /* AmountInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +74,6 @@
 		8686097C2E4915900099AA49 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		8686097E2E4915AC0099AA49 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		868609812E4916020099AA49 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		868609832E49160E0099AA49 /* BitcoinRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRate.swift; sourceTree = "<group>"; };
 		868609852E49161D0099AA49 /* TransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategory.swift; sourceTree = "<group>"; };
 		8686098A2E49165F0099AA49 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		8686098E2E4916A80099AA49 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -87,14 +81,10 @@
 		868609922E4916C00099AA49 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		868609952E4917430099AA49 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		868609972E4917510099AA49 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
-		868609992E49175A0099AA49 /* BalanceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCoordinator.swift; sourceTree = "<group>"; };
 		8686099C2E4917710099AA49 /* BalanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeaderView.swift; sourceTree = "<group>"; };
 		8686099E2E49177D0099AA49 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
-		868609A02E4917860099AA49 /* TransactionSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSectionHeader.swift; sourceTree = "<group>"; };
 		868609A32E4917A40099AA49 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		868609A52E4917AD0099AA49 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
-		868609A82E4917C10099AA49 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
-		868609AA2E4917CB0099AA49 /* AmountInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				868609852E49161D0099AA49 /* TransactionCategory.swift */,
-				868609832E49160E0099AA49 /* BitcoinRate.swift */,
 				868609812E4916020099AA49 /* Transaction.swift */,
 			);
 			path = Models;
@@ -261,7 +250,6 @@
 		868609942E4917320099AA49 /* Balance */ = {
 			isa = PBXGroup;
 			children = (
-				868609992E49175A0099AA49 /* BalanceCoordinator.swift */,
 				868609972E4917510099AA49 /* BalanceViewModel.swift */,
 				868609952E4917430099AA49 /* BalanceViewController.swift */,
 				8686099B2E49175E0099AA49 /* Views */,
@@ -272,7 +260,6 @@
 		8686099B2E49175E0099AA49 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				868609A02E4917860099AA49 /* TransactionSectionHeader.swift */,
 				8686099E2E49177D0099AA49 /* TransactionCell.swift */,
 				8686099C2E4917710099AA49 /* BalanceHeaderView.swift */,
 			);
@@ -282,20 +269,10 @@
 		868609A22E4917950099AA49 /* AddTransaction */ = {
 			isa = PBXGroup;
 			children = (
-				868609A72E4917B90099AA49 /* Views */,
 				868609A52E4917AD0099AA49 /* AddTransactionViewModel.swift */,
 				868609A32E4917A40099AA49 /* AddTransactionViewController.swift */,
 			);
 			path = AddTransaction;
-			sourceTree = "<group>";
-		};
-		868609A72E4917B90099AA49 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				868609AA2E4917CB0099AA49 /* AmountInputView.swift */,
-				868609A82E4917C10099AA49 /* CategoryPickerView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		868609AC2E4917DC0099AA49 /* Resources */ = {
@@ -438,11 +415,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868609A92E4917C10099AA49 /* CategoryPickerView.swift in Sources */,
 				868609822E4916030099AA49 /* Transaction.swift in Sources */,
 				0D1540612D22EF5D00D6D63F /* AnalyticsEvent.swift in Sources */,
 				8686097F2E4915B20099AA49 /* CoreDataService.swift in Sources */,
-				868609842E4916120099AA49 /* BitcoinRate.swift in Sources */,
 				8686099D2E4917730099AA49 /* BalanceHeaderView.swift in Sources */,
 				868609782E4914BB0099AA49 /* SceneDelegate.swift in Sources */,
 				868609A42E4917A40099AA49 /* AddTransactionViewController.swift in Sources */,
@@ -454,7 +429,6 @@
 				0DF1D1432D22DCD8001626E7 /* PerformOnce.swift in Sources */,
 				8686097D2E4915970099AA49 /* TransactionService.swift in Sources */,
 				868609962E4917450099AA49 /* BalanceViewController.swift in Sources */,
-				8686099A2E49175B0099AA49 /* BalanceCoordinator.swift in Sources */,
 				8686096B2E4912BA0099AA49 /* ServicesAssembler+RateTracking.swift in Sources */,
 				868609932E4916C10099AA49 /* Date+Extensions.swift in Sources */,
 				8686098F2E4916A90099AA49 /* UIView+Extensions.swift in Sources */,
@@ -464,8 +438,6 @@
 				0DF1D1452D22DD06001626E7 /* BitcoinRateService.swift in Sources */,
 				868609A62E4917AD0099AA49 /* AddTransactionViewModel.swift in Sources */,
 				0DF1D1472D22DD4A001626E7 /* AnalyticsService.swift in Sources */,
-				868609A12E4917870099AA49 /* TransactionSectionHeader.swift in Sources */,
-				868609AB2E4917CB0099AA49 /* AmountInputView.swift in Sources */,
 				1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

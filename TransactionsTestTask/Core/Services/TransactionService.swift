@@ -17,6 +17,7 @@ protocol TransactionServiceProtocol {
 }
 
 final class TransactionService: TransactionServiceProtocol {
+    static let shared = TransactionService()
     private let coreDataService = CoreDataService()
     private let balanceSubject = CurrentValueSubject<Decimal, Never>(0)
     
@@ -44,7 +45,6 @@ final class TransactionService: TransactionServiceProtocol {
         let newBalance = balanceSubject.value + amount
         balanceSubject.send(newBalance)
         
-        // Save as income transaction
         let transaction = Transaction(
             id: UUID(),
             amount: amount,

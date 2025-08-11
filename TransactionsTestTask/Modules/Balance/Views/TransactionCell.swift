@@ -26,22 +26,17 @@ final class TransactionCell: UITableViewCell {
     private func setupUI() {
         selectionStyle = .none
         
-        // Icon
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.tintColor = .systemBlue
         
-        // Category Label
         categoryLabel.font = .systemFont(ofSize: 16, weight: .medium)
         
-        // Time Label
         timeLabel.font = .systemFont(ofSize: 14)
         timeLabel.textColor = .secondaryLabel
         
-        // Amount Label
         amountLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         amountLabel.textAlignment = .right
         
-        // Layout
         [iconImageView, categoryLabel, timeLabel, amountLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
@@ -72,9 +67,9 @@ final class TransactionCell: UITableViewCell {
         
         let formatter = DateFormatter()
         formatter.timeStyle = .short
-        timeLabel.text = formatter.string(from: transaction.date)
+        timeLabel.text = transaction.date.transactionTimeFormatted
         
-        let amountString = String(format: "%.4f BTC", NSDecimalNumber(decimal: transaction.amount).doubleValue)
+        let amountString = transaction.amount.bitcoinFormatted
         if transaction.type == .income {
             amountLabel.text = "+ \(amountString)"
             amountLabel.textColor = .systemGreen
