@@ -18,6 +18,7 @@ protocol TransactionServiceProtocol {
 
 final class TransactionService: TransactionServiceProtocol {
     static let shared = TransactionService()
+    
     private let coreDataService = CoreDataService()
     private let balanceSubject = CurrentValueSubject<Decimal, Never>(0)
     
@@ -25,12 +26,19 @@ final class TransactionService: TransactionServiceProtocol {
         balanceSubject.eraseToAnyPublisher()
     }
     
+    private init() {
+        loadBalance()
+    }
+    
+    private func loadBalance() {
+        let balance = coreDataService.getTotalBalance()
+        balanceSubject.send(balance)
+    }
+    
     func addTransaction(_ transaction: Transaction) {
         coreDataService.saveTransaction(transaction)
-        if transaction.type == .expense {
-            let newBalance = balanceSubject.value - transaction.amount
-            balanceSubject.send(newBalance)
-        }
+        
+        loadBalance()
     }
     
     func getTransactions(page: Int, pageSize: Int = 20) -> [Transaction] {
@@ -38,13 +46,12 @@ final class TransactionService: TransactionServiceProtocol {
     }
     
     func getBalance() -> Decimal {
-        return balanceSubject.value
+        let balance = coreDataService.getTotalBalance()
+        balanceSubject.send(balance)
+        return balance
     }
     
     func addToBalance(_ amount: Decimal) {
-        let newBalance = balanceSubject.value + amount
-        balanceSubject.send(newBalance)
-        
         let transaction = Transaction(
             id: UUID(),
             amount: amount,
@@ -52,6 +59,9 @@ final class TransactionService: TransactionServiceProtocol {
             date: Date(),
             type: .income
         )
+        
         coreDataService.saveTransaction(transaction)
+        
+        loadBalance()
     }
 }

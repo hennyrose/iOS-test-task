@@ -23,6 +23,8 @@ extension Date {
         } else {
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            formatter.doesRelativeDateFormatting = false
             return formatter.string(from: self)
         }
     }

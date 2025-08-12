@@ -8,34 +8,30 @@ import Foundation
 import Combine
 
 protocol BitcoinRateService: AnyObject {
-    var onRateUpdate: ((Double) -> Void)? { get set }
     func startMonitoring()
     func stopMonitoring()
     func getCurrentRate() -> Double?
 }
 
 final class BitcoinRateServiceImpl: BitcoinRateService {
-    var onRateUpdate: ((Double) -> Void)?
     
     private var timer: Timer?
     private var currentRate: Double?
     private let coreDataService = CoreDataService()
     
-    private struct BitcoinResponse: Codable {
-        let bpi: BPI
-        
-        struct BPI: Codable {
-            let USD: Currency
-        }
-        
-        struct Currency: Codable {
-            let rate_float: Double
-        }
+    private struct BinanceResponse: Codable {
+        let symbol: String
+        let price: String
+    }
+    
+    init() {
+        currentRate = coreDataService.getLatestBitcoinRate()
     }
     
     func startMonitoring() {
         fetchRate()
-        timer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { [weak self] _ in
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { [weak self] _ in
             self?.fetchRate()
         }
     }
@@ -49,25 +45,68 @@ final class BitcoinRateServiceImpl: BitcoinRateService {
         if let rate = currentRate {
             return rate
         }
-        return coreDataService.getLatestBitcoinRate()
+        currentRate = coreDataService.getLatestBitcoinRate()
+        return currentRate
     }
     
     private func fetchRate() {
-        guard let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json") else { return }
+        guard let url = URL(string: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT") else {
+            print("Invalid URL")
+            return
+        }
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data,
-                  let response = try? JSONDecoder().decode(BitcoinResponse.self, from: data) else {
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                print("Error fetching rate: \(error)")
+                self?.fetchRateFromAlternative()
                 return
             }
             
-            let rate = response.bpi.USD.rate_float
-            DispatchQueue.main.async {
-                self?.currentRate = rate
-                self?.onRateUpdate?(rate)
-                ServicesAssembler.bitcoinRateUpdateSubject.send(rate)
-                self?.coreDataService.saveBitcoinRate(rate)
+            guard let data = data else {
+                print("No data received")
+                return
             }
-        }.resume()
+            
+            do {
+                let response = try JSONDecoder().decode(BinanceResponse.self, from: data)
+                if let rate = Double(response.price) {
+                    DispatchQueue.main.async {
+                        self?.updateRate(rate)
+                    }
+                }
+            } catch {
+                print("Error decoding response: \(error)")
+                self?.fetchRateFromAlternative()
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private func fetchRateFromAlternative() {
+        guard let url = URL(string: "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd") else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let data = data,
+                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                  let bitcoin = json["bitcoin"] as? [String: Any],
+                  let usdPrice = bitcoin["usd"] as? Double else {
+                print("Failed to fetch from alternative API")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.updateRate(usdPrice)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private func updateRate(_ rate: Double) {
+        currentRate = rate
+        ServicesAssembler.bitcoinRateUpdateSubject.send(rate)
+        coreDataService.saveBitcoinRate(rate)
+        print("Bitcoin rate updated: $\(rate)")
     }
 }

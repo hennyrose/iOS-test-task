@@ -34,6 +34,10 @@
 		8686099F2E49177D0099AA49 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686099E2E49177D0099AA49 /* TransactionCell.swift */; };
 		868609A42E4917A40099AA49 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A32E4917A40099AA49 /* AddTransactionViewController.swift */; };
 		868609A62E4917AD0099AA49 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609A52E4917AD0099AA49 /* AddTransactionViewModel.swift */; };
+		868609AE2E4AACA70099AA49 /* AnalyticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609AD2E4AACA70099AA49 /* AnalyticsServiceTests.swift */; };
+		868609B02E4AACC20099AA49 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609AF2E4AACC20099AA49 /* CoreDataServiceTests.swift */; };
+		868609B22E4AACE10099AA49 /* ServicesAssemblerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609B12E4AACE10099AA49 /* ServicesAssemblerTests.swift */; };
+		868609B42E4AB00B0099AA49 /* BitcoinRateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868609B32E4AB00B0099AA49 /* BitcoinRateServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		8686099E2E49177D0099AA49 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		868609A32E4917A40099AA49 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		868609A52E4917AD0099AA49 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		868609AD2E4AACA70099AA49 /* AnalyticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsServiceTests.swift; sourceTree = "<group>"; };
+		868609AF2E4AACC20099AA49 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		868609B12E4AACE10099AA49 /* ServicesAssemblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssemblerTests.swift; sourceTree = "<group>"; };
+		868609B32E4AB00B0099AA49 /* BitcoinRateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +176,7 @@
 				8686097B2E4915590099AA49 /* Core */,
 				868609702E4914500099AA49 /* Modules */,
 				868609AC2E4917DC0099AA49 /* Resources */,
+				1CA3B6662D22B0F600176711 /* Info.plist */,
 			);
 			path = TransactionsTestTask;
 			sourceTree = "<group>";
@@ -175,6 +184,10 @@
 		1CA3B66E2D22B0F600176711 /* TransactionsTestTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				868609B32E4AB00B0099AA49 /* BitcoinRateServiceTests.swift */,
+				868609B12E4AACE10099AA49 /* ServicesAssemblerTests.swift */,
+				868609AF2E4AACC20099AA49 /* CoreDataServiceTests.swift */,
+				868609AD2E4AACA70099AA49 /* AnalyticsServiceTests.swift */,
 				1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */,
 			);
 			path = TransactionsTestTaskTests;
@@ -280,7 +293,6 @@
 			children = (
 				1CA3B6612D22B0F600176711 /* Assets.xcassets */,
 				1CA3B6632D22B0F600176711 /* LaunchScreen.storyboard */,
-				1CA3B6662D22B0F600176711 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -446,6 +458,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868609B22E4AACE10099AA49 /* ServicesAssemblerTests.swift in Sources */,
+				868609B42E4AB00B0099AA49 /* BitcoinRateServiceTests.swift in Sources */,
+				868609B02E4AACC20099AA49 /* CoreDataServiceTests.swift in Sources */,
+				868609AE2E4AACA70099AA49 /* AnalyticsServiceTests.swift in Sources */,
 				1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +630,6 @@
 				INFOPLIST_FILE = TransactionsTestTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,7 +656,6 @@
 				INFOPLIST_FILE = TransactionsTestTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

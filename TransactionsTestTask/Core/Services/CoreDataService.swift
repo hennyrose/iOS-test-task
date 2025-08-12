@@ -63,6 +63,7 @@ final class CoreDataService {
     func fetchTransactions(page: Int, pageSize: Int) -> [Transaction] {
         let context = stack.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.fetchLimit = pageSize
         fetchRequest.fetchOffset = page * pageSize
@@ -116,7 +117,7 @@ final class CoreDataService {
                 }
             }
             
-            return balance
+            return max(balance, 0)
         } catch {
             print("Failed to calculate balance: \(error)")
             return 0

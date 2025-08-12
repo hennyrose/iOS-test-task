@@ -17,7 +17,9 @@ final class AppCoordinator {
     }
     
     func start() {
-        ServicesAssembler.setupRateTracking()
+        ServicesAssembler.initializeModules()
+        
+        ServicesAssembler.bitcoinRateService().startMonitoring()
         
         showBalanceScreen()
     }
@@ -39,9 +41,7 @@ final class AppCoordinator {
         )
         let viewController = AddTransactionViewController(viewModel: viewModel)
         viewController.coordinator = self
-        
-        let navController = UINavigationController(rootViewController: viewController)
-        navigationController.present(navController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     private func setupAppearance() {
